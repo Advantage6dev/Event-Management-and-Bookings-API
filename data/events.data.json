@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Conference Ibadan",
+    "description": "A conference for developers and technology enthusiasts",
+    "category": "tech",
+    "location": "Ibadan",
+    "date": "2026-11-15",
+    "capacity": 100,
+    "availableSeats": 100,
+    "createdAt": "2026-10-01T08:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Business Growth Summit",
+    "description": "Learn strategies for building and growing a business",
+    "category": "business",
+    "location": "Lagos",
+    "date": "2026-11-20",
+    "capacity": 50,
+    "availableSeats": 50,
+    "createdAt": "2026-10-01T09:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Modern Web Development Workshop",
+    "description": "A practical workshop on modern web development",
+    "category": "education",
+    "location": "Abuja",
+    "date": "2026-12-05",
+    "capacity": 40,
+    "availableSeats": 40,
+    "createdAt": "2026-10-01T10:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "title": "Live Music Festival",
+    "description": "An exciting evening of live music and entertainment",
+    "category": "music",
+    "location": "Lagos",
+    "date": "2026-12-12",
+    "capacity": 200,
+    "availableSeats": 200,
+    "createdAt": "2026-10-01T11:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "title": "TypeScript Masterclass",
+    "description": "Learn TypeScript from fundamentals to practical applications",
+    "category": "tech",
+    "location": "Ibadan",
+    "date": "2027-01-10",
+    "capacity": 30,
+    "availableSeats": 30,
+    "createdAt": "2026-10-01T12:00:00.000Z"
+  }
+]
