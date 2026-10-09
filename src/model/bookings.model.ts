@@ -12,5 +12,4 @@ export type CreatedBooking = {
   customerName: string;
   customerEmail: string;
   numberOfSeat: number;
-  createdAt: string;
 };

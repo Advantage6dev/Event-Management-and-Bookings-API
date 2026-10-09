@@ -1,4 +1,3 @@
-import { error } from 'node:console';
 import { Booking, CreatedBooking } from '../model/bookings.model.js';
 import { Event } from '../model/events.model.js';
 import {
@@ -27,11 +26,11 @@ export async function createBooking(
   const events = (await getAllEvents()) as Event[];
   const event = events.find((event) => event.id === bookingData.eventId);
   if (!event) {
-    throw new Error("Events can't be Found");
+    throw new Error('Events not Found');
   }
   if (bookingData.numberOfSeat > event.availableSeats) {
     throw new Error(
-      `This number of seates atre not available this are the ones available ${event.availableSeats}`,
+      `Only ${event.availableSeats} seat(s) are available for this event`,
     );
   }
   const newId =
@@ -59,21 +58,21 @@ export async function createBooking(
 export async function deleteBooking(id: number): Promise<Booking | undefined> {
   const bookings = await getAllBooking();
   const bookingIndex = bookings.findIndex((booking) => booking.id === id);
-  const booking = bookings[bookingIndex];
+  const deletedBooking = bookings[bookingIndex];
   if (!bookingIndex) {
     throw new Error('Id not found');
   }
   const events = (await getAllEvents()) as Event[];
-  const event = events.find((event) => event.id === booking.eventId);
+  const event = events.find((event) => event.id === deletedBooking.eventId);
   if (!event) {
     throw new Error('Event not found');
   }
 
   bookings.splice(bookingIndex, 1);
-  event.availableSeats += booking.numberOfSeat;
+  event.availableSeats += deletedBooking.numberOfSeat;
 
   writeEventsData(events);
   writeBookingsData(bookings);
 
-  return booking;
+  return deletedBooking;
 }

@@ -19,8 +19,6 @@ export type CreatedEvent = {
   location: string;
   date: string;
   capacity: number;
-  availableSeats: number;
-  createdAt: string;
 };
 
 export type UpdatedEvent = Partial<CreatedEvent>;

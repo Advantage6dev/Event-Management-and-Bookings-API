@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const eventFilePath = '../../data/events.data.json';
-const bookingFilePath = '../../data/bookings.data.json';
+const eventFilePath = new URL('../../data/events.json', import.meta.url);
+const bookingFilePath = new URL('../../data/bookings.json', import.meta.url);
 
 export async function readEventsData(): Promise<string> {
   const data = await readFile(eventFilePath, 'utf-8');

@@ -29,10 +29,29 @@ export async function CreateAnEvent(data: CreatedEvent): Promise<Event> {
     location: data.location,
     date: data.date,
     capacity: data.capacity,
-    availableSeats: data.availableSeats,
+    availableSeats: data.capacity,
     createdAt: new Date().toISOString(),
   };
+  events.push(newEvent);
+  await writeEventsData(events);
   return newEvent;
+}
+
+export async function updateEvent(
+  id: number,
+  data: UpdatedEvent,
+): Promise<Event> {
+  const events = await getAllEvents();
+  const eventIndex = events.findIndex((event) => event.id === id);
+
+  const update = {
+    ...events[eventIndex],
+    ...data,
+  };
+
+  await writeEventsData(events);
+
+  return events[eventIndex];
 }
 
 export async function filterEvent(
@@ -46,11 +65,16 @@ export async function filterEvent(
     events = events.filter((event) => event.category === category);
   }
   if (location) {
-    events = events.filter((event) => event.location === location);
+    events = events.filter(
+      (event) =>
+        event.location.toLocaleLowerCase() === location.toLocaleLowerCase(),
+    );
   }
   if (search) {
     events = events.filter(
-      (event) => event.title === search || event.description === search,
+      (event) =>
+        event.title.toLocaleLowerCase() === search.toLocaleLowerCase() ||
+        event.description.toLocaleLowerCase() === search,
     );
   }
   if (sort) {
@@ -65,12 +89,16 @@ export async function filterEvent(
   return events;
 }
 
-export async function deleteEvent(id: number): Promise<Event> {
+export async function deleteEvent(id: number): Promise<Event | undefined> {
   const events = await getAllEvents();
   const eventIndex = events.findIndex((event) => event.id === id);
 
-  events.splice(eventIndex, 1);
+  if (eventIndex === -1) {
+    return undefined;
+  }
+
+  const [deletedEvent] = events.splice(eventIndex, 1);
   await writeEventsData(events);
 
-  return events[eventIndex];
+  return deletedEvent;
 }

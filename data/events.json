@@ -18,7 +18,7 @@
     "location": "Lagos",
     "date": "2026-11-20",
     "capacity": 50,
-    "availableSeats": 50,
+    "availableSeats": 45,
     "createdAt": "2026-10-01T09:00:00.000Z"
   },
   {
@@ -50,8 +50,19 @@
     "category": "tech",
     "location": "Ibadan",
     "date": "2027-01-10",
-    "capacity": 30,
-    "availableSeats": 30,
-    "createdAt": "2026-10-01T12:00:00.000Z"
+    "capacity": "30",
+    "availableSeats": 20,
+    "createdAt": "2026-10-09T00:51:44.330Z"
+  },
+  {
+    "id": 6,
+    "title": "DEVFEST 2026",
+    "description": "A program held by GDG(google developeer group) to bring together builders",
+    "category": "tech",
+    "location": "Ibadan",
+    "date": "2027-10-11",
+    "capacity": "300",
+    "availableSeats": "300",
+    "createdAt": "2026-10-09T02:27:21.348Z"
   }
 ]
